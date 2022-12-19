@@ -38,11 +38,11 @@
                     {{#each productos}}
                     <tr>
                         <th scope="row">{{id}}</th>
-                        <td>{{title}}</td>
-                        <td><img src={{thumbnail}} width="150">
+                        <td>{{nombre}}</td>
+                        <td><img src={{rutaImagen}} width="150">
                         </td>
                         <td class="descripcion">
-                            <div>{{description}}</div>
+                            <div>{{descripcion}}</div>
                         </td>
                         <td class="caracteristicas">
 
@@ -53,9 +53,13 @@
                                 <li> 16 gb RAM </li>
                             </ul> --}}
                         </td>
-                        <td>{{dolarApeso price}} </td>
+                        <td>{{dolarApeso precio}} </td>
                         <td>{{stock}} </td>
-                        <td><input type="checkbox" name="destacado" value=1 disabled> </td>
+                        <td>{{#check destacado}}
+                            /*aca se muestra el html*/
+                            {{this}}
+                            {{/check}}
+                             </td>
                         <td>
                             <a href="editar-producto/{{id}}">Editar </a><br>
                             <a href="borrar/{{id}}">Borrar</a>
@@ -65,7 +69,7 @@
                 </tbody>
 
             </table>
-            <a href="agregar-producto.html" class="btn btn-info">Agregar producto</a>
+            <a href="agregar-producto" class="btn btn-info">Agregar producto</a>
 
         </div>
 
