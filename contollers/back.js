@@ -1,4 +1,6 @@
 const productos = require('../data/products.json');
+require('dotenv').config();
+const db = require("../models/connection.js");
 const adminGet = function (req, res)
 {
     res.render('admin', {

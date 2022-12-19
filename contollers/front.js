@@ -1,9 +1,20 @@
-const productos = require('../data/products.json');
+//const productos = require('../data/products.json');
+require('dotenv').config()
+const db = require("../models/connection.js");
+
 const indexGet = function (req, res)
 {
-    res.render('index', {
-        titulo: "Mi pagina web",
-        productos: productos.products
+
+    let sql = "SELECT * FROM productos WHERE destacado = 1";
+    db.query(sql, (err, data) =>
+    {
+        if (err) throw err;
+        console.log(data);
+        res.render('index', {
+            titulo: "Mi página web",
+            productos: data
+        });
+
     });
 };
 
