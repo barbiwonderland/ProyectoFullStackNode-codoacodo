@@ -4,35 +4,44 @@ let dolar;
 // Obtener el dólar
 axios
   .get("https://www.dolarsi.com/api/api.php?type=valoresprincipales")
-  .then((resultado) => {
-    dolar = resultado.data[4].casa.venta;
+  .then((resultado) =>
+  {
+    console.log(resultado.data);
+    dolar = resultado.data[1].casa.venta;
     dolar = dolar.replace(/,/g, ".");
     dolar = parseFloat(dolar);
     console.log(dolar);
   })
-  .catch((err) => {
+  .catch((err) =>
+  {
     console.log(err);
   });
 
-hbs.registerHelper("dolarApeso", (precio) => {
+hbs.registerHelper("dolarApeso", (precio) =>
+{
   const total = dolar * precio;
   return new Intl.NumberFormat("es-AR", {
     style: "currency",
     currency: "ARS",
   }).format(total);
 });
-hbs.registerHelper("listado", (datos) => {
+hbs.registerHelper("listado", (datos) =>
+{
   let array = datos.split(",");
   let html = "<ul>";
-  for (item of array) {
+  for (item of array)
+  {
     html += `<li>${item}</li>`;
   }
   return `${html}</ul>`;
 });
-hbs.registerHelper("check", (valor) => {
-  if (valor == 1) {
+hbs.registerHelper("check", (valor) =>
+{
+  if (valor == 1)
+  {
     return `  <input type="checkbox" name="destacado" value="1" disabled checked >`;
-  } else {
+  } else
+  {
     return ` <input type="checkbox" name="destacado" value="0" disabled >`;
   }
 });

@@ -15,45 +15,47 @@
 
         <!-- Main Menu Section -->
         {{>nav}}
-          <div class="editar-producto mt-4">
-{{#if mensaje}}
-<p>{{mensaje}}</p>
-{{/if}}
-            <form action="/editar-producto/{{producto.id}}" method="post" enctype="multipart/form-data">
+        <div class="editar-producto mt-4">
+            {{#if mensaje}}
+            <p>{{mensaje}}</p>
+            {{/if}}
+            <form action="/editar-producto/{{producto.id}}" method="post">
                 <div class="row">
                     <div class=" col-md-6 col-lg-5">
                         <div class="row">
                             <div class="mb-3 col-12 col-md-6">
                                 <label for="nombre" class="form-label small">Nombre</label>
-                                <input type="text" value={{producto.nombre}} class="form-control" id="nombre" placeholder="Nombre del producto"
-                                    name="nombre" required>
+                                <input type="text" value={{producto.nombre}} class="form-control" id="nombre"
+                                    placeholder="Nombre del producto" name="nombre" required>
                             </div>
 
 
                             <div class="mb-3 col-12 col-md-6">
                                 <label for="precio" class="form-label small">Precio (u$s)</label>
-                                <input value={{producto.precio}} type="text" class="form-control" id="precio" placeholder="$ Precio en dólares"
-                                    name="precio" required>
+                                <input value={{producto.precio}} type="text" class="form-control" id="precio"
+                                    placeholder="$ Precio en dólares" name="precio" required>
                             </div>
-                             <div class="mb-3 col-md-3">
+                            <div class="mb-3 col-md-3">
                                 <label for="stock" class="form-label small">Stock</label>
-                                <input type="number" class="form-control" id="stock" 
-                                   value={{producto.stock}} name="stock" required>
+                                <input type="number" class="form-control" id="stock" value={{producto.stock}}
+                                    name="stock" required>
                             </div>
 
                             <div class="mb-3 col-md-1">
                                 <label for="destacado" class="form-label small">Destacado</label>
                                 {{#if producto.destacado}}
-                                    <input type="checkbox" class="form-check-input" id="destacado" name="destacado" value="1" checked>
+                                <input type="checkbox" class="form-check-input" id="destacado" name="destacado"
+                                    value="1" checked>
                                 {{else}}
-                                    <input type="checkbox" class="form-check-input" id="destacado" name="destacado" value="1">
+                                <input type="checkbox" class="form-check-input" id="destacado" name="destacado"
+                                    value="1">
                                 {{/if}}
-                             
+
                             </div>
                         </div>
 
 
-                      {{!--   <div class="col-12" id="">
+                        {{!-- <div class="col-12" id="">
                             <label for="imagenDeProducto" class="form-label btn btn-primary">Subir imagen</label>
                             <div class="preview">
                                 <p>No hay imagen seleccionada para subir</p>
@@ -62,23 +64,24 @@
                                 accept=".png,.jpg,.jpeg" required>
                         </div> --}}
 
-                            <div class="col-12" id="">
+                        <div class="col-12" id="">
                             <label for="rutaImagen" class="form-label small">URL imagen</label>
-                           
-                            <input  value={{producto.rutaImagen}} class="form-control" type="text" id="rutaImagen" name="rutaImagen"
-                                 required>
+
+                            <input value={{producto.rutaImagen}} class="form-control" type="text" id="rutaImagen"
+                                name="rutaImagen" required>
                         </div>
 
                     </div>
                     <div class=" col-md-6 col-xl-7">
                         <div class="row">
                             <div class="mb-3 col-8">
-                                <label for="descripcion" class="form-label small"  >Descripcion</label>
-                                <textarea  class="form-control" id="descripcion" rows="6"
-                                    placeholder="Descripcion del producto" name="descripcion"> {{producto.descripcion}}</textarea>
+                                <label for="descripcion" class="form-label small">Descripcion</label>
+                                <textarea class="form-control" id="descripcion" rows="6"
+                                    placeholder="Descripcion del producto"
+                                    name="descripcion"> {{producto.descripcion}}</textarea>
                             </div>
                             <div class="mb-3 col-4">
-                                <label  for="caracteristicas" class="form-label small">Caracteristicas</label>
+                                <label for="caracteristicas" class="form-label small">Caracteristicas</label>
                                 <textarea class="form-control" id="caracteristicas" rows="6"
                                     placeholder="Separar con coma las características"
                                     name="caracteristicas">{{producto.caracteristicas}}</textarea>

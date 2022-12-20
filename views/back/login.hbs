@@ -17,17 +17,21 @@
 
 
   <main class="form-signin">
-    <form action="login" method="post">
+    {{#if error}}
+    <div class="error">{{error}}</div>
+    <div class="alert alert-danger mb-3" role="alert">{{error}}</div>
+    {{/if}}
+    <form action="/login" method="post">
 
       <h1 class="h3 mb-3 text-center">Acceso al panel de control</h1>
 
       <div class="form-floating">
-        <input type="email" class="form-control" id="username" placeholder="name@example.com" name="username">
-        <label for="username">Usuario</label>
+        <input type="email" class="form-control" id="usuario" placeholder="name@example.com" name="usuario">
+        <label for="usuario">Usuario</label>
       </div>
       <div class="form-floating">
-        <input type="password" class="form-control" id="password" placeholder="Contraseña" name="password">
-        <label for="password">Contraseña</label>
+        <input type="clave" class="form-control" id="clave" placeholder="Contraseña" name="clave">
+        <label for="clave">Contraseña</label>
       </div>
 
 
@@ -38,30 +42,6 @@
 
   </main>
 
-  <script>
-
-    const usuario = "admin@gmail.com";
-    const password = "123";
-    const btn = document.querySelector("button");
-    console.log(btn);
-    btn.addEventListener("click", event =>
-    {
-      event.preventDefault();
-      console.log(btn);
-      const error = document.querySelector(".error");
-      const valueUser = document.querySelector("#username").value;
-      const valuePassword = document.querySelector("#password").value;
-      if (usuario == valuePassword && password == valuePassword)
-      {
-        window.location.href("http://localhost:3000/admin");
-      }
-      else
-      {
-        error.style.display("block");
-      }
-    }
-    );
-  </script>
 
 </body>
 

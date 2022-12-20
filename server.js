@@ -6,6 +6,16 @@ require("./views/helpers/helpers.js");
 const path = require("path");
 const rutasBack = require("./routes/back.js");
 const rutasFront = require("./routes/front.js");
+const session = require("express-session");
+//sesiones mediante cookies 
+app.use(session({
+  secret: "sarasa",
+  resave: true,
+  saveUninitialized: false,
+  cookie: { maxAge: 300000 } // 5 minutos
+
+}));
+
 //middleware para tomar datos form
 app.use(express.json());
 app.use(
@@ -22,7 +32,8 @@ app.set("views", [
 hbs.registerPartials(__dirname + "/views/partials"); // indicamos el directorio hacia los parciales
 app.use("/", rutasFront);
 app.use("/", rutasBack);
-app.use((req, res, next) => {
+app.use((req, res, next) =>
+{
   res.status(404).render("404");
 });
 // app.use(express.static("public"));
