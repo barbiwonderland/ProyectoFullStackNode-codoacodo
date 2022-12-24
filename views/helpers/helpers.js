@@ -6,11 +6,11 @@ axios
   .get("https://www.dolarsi.com/api/api.php?type=valoresprincipales")
   .then((resultado) =>
   {
-    console.log(resultado.data);
+
     dolar = resultado.data[1].casa.venta;
     dolar = dolar.replace(/,/g, ".");
     dolar = parseFloat(dolar);
-    console.log(dolar);
+
   })
   .catch((err) =>
   {
@@ -45,3 +45,4 @@ hbs.registerHelper("check", (valor) =>
     return ` <input type="checkbox" name="destacado" value="0" disabled >`;
   }
 });
+

@@ -23,6 +23,8 @@ app.use(
     extended: false,
   })
 );
+// Fija una ruta estatica 
+app.use(express.static("public"));
 app.set("view engine", "hbs");
 app.set("views", [
   path.join("./views/front"),
@@ -30,12 +32,13 @@ app.set("views", [
   path.join("./views"),
 ]);
 hbs.registerPartials(__dirname + "/views/partials"); // indicamos el directorio hacia los parciales
+
 app.use("/", rutasFront);
 app.use("/", rutasBack);
 app.use((req, res, next) =>
 {
   res.status(404).render("404");
 });
-// app.use(express.static("public"));
+
 
 app.listen(3000);
