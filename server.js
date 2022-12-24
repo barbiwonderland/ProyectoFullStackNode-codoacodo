@@ -7,6 +7,7 @@ const path = require("path");
 const rutasBack = require("./routes/back.js");
 const rutasFront = require("./routes/front.js");
 const session = require("express-session");
+const port = process.env.PORT || 3000;
 //sesiones mediante cookies 
 app.use(session({
   secret: "sarasa",
@@ -41,4 +42,4 @@ app.use((req, res, next) =>
 });
 
 
-app.listen(3000);
+app.listen(port);
