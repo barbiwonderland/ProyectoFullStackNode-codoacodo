@@ -14,7 +14,7 @@
 }
 
 .acciones-admin:hover {
-  text-decoration: underline 5px solid rgb(64, 210, 233);
+  text-decoration: none !important;
   color: rgb(64, 218, 223) !important;
 
 }
