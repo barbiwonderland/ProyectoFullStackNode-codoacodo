@@ -122,7 +122,7 @@ const editarProductoPost = function (req, res) {
     // todo OK continuando
     const id = req.params.id
     const productoDetalles = req.body
-    console.log(productoDetalles, "producto modificado")
+    // console.log(productoDetalles, "producto modificado")
 
     if (req.hasOwnProperty("file")) {
       const nombreImagen = req.file.filename
@@ -201,10 +201,12 @@ const loginPost = function (req, res) {
   }
 }
 const logoutPost = function (req, res) {
-  console.log(req)
-  req.session.logueado = false
+  req.session.destroy(function (err) {
+    console.log(err)
+  })
   indexGet(req, res)
 }
+
 module.exports = {
   adminGet,
   agregarProductoGet,

@@ -12,7 +12,7 @@ const {
   logoutPost,
 } = require("../contollers/back.js")
 router.get("/admin", adminGet)
-router.get("/", logoutPost)
+router.get("/logout", logoutPost)
 router.get("/agregar-producto", agregarProductoGet)
 router.post("/agregar-producto", agregarProductoPost)
 router.get("/editar-producto/:id", editarProductoGet)
