@@ -38,7 +38,8 @@
       <button class="w-100 btn btn-lg btn-info" type="submit">Entrar</button>
     </form>
     <p class="error">Usuario o contraseña incorrecta</p>
-    <a id="devLogin" href="/admin">IR A ADMIN (MODO DEV)</a>
+    <div class="mt-3  text-center"> <a  class="links-unstyle" id="devLogin" href="/admin">IR A ADMIN (MODO DEV)</a></div>
+   
 
   </main>
 
@@ -49,7 +50,8 @@
 
 <script>
  const devLogin=document.querySelector("#devLogin")
- devLogin.addEventListener("click",()=>{
+ devLogin.addEventListener("click",(e)=>{
+  e.preventDefault()
 document.querySelector("form").submit()
  })
 
