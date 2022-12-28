@@ -6,16 +6,13 @@
 </head>
 
 <body id="backend">
+    {{>header}}
+
+    {{>nav}}
     <h1>Panel de control</h1>
     <div class="container mb-4">
 
-        <!-- Start Top Header Bar -->
-        {{>header}}
-        <!-- End Top Header Bar -->
 
-
-        <!-- Main Menu Section -->
-        {{>nav}}
         <div class="table-responsive mt-4">
 
             <table class="table caption-top">
@@ -54,8 +51,8 @@
                             {{/check}}
                         </td>
                         <td>
-                            <a href="editar-producto/{{id}}">Editar </a><br>
-                            <a href="borrar/{{id}}">Borrar</a>
+                            <a class="acciones-admin" href="editar-producto/{{id}}">Editar </a><br>
+                            <a class="acciones-admin" href="borrar/{{id}}">Borrar</a>
                         </td>
                     </tr>
                     {{/each}}

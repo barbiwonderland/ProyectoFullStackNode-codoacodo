@@ -1,5 +1,24 @@
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans&display=swap");
 
+.btn-info {
+  color: #000;
+  background-color: rgb(64, 218, 223);
+  border-color: rgb(64, 218, 223);
+
+}
+
+.acciones-admin {
+  color: black;
+  text-decoration: none;
+
+}
+
+.acciones-admin:hover {
+  text-decoration: underline 5px solid rgb(64, 210, 233);
+  color: rgb(64, 218, 223) !important;
+
+}
+
 ul {
   padding: 0;
   list-style-position: inside;
@@ -81,12 +100,10 @@ footer .bi:hover {
   width: 100%;
   height: 50px;
   /* linear-gradient(to bottom right, red, rgba(255,0,0,0)); */
-  background-image: linear-gradient(
-    to bottom,
-    rgba(255, 255, 255, 0) 0%,
-    rgb(255, 255, 255) 80%,
-    rgb(255, 255, 255) 100%
-  );
+  background-image: linear-gradient(to bottom,
+      rgba(255, 255, 255, 0) 0%,
+      rgb(255, 255, 255) 80%,
+      rgb(255, 255, 255) 100%);
   pointer-events: none;
 }
 
@@ -123,16 +140,17 @@ footer .bi:hover {
   left: calc(50% - 36px);
   width: 75px;
   height: 45px;
-  color: black;
+  color: #2196b4;
   background-color: rgba(255, 255, 255, 0);
   padding: 10px;
-  box-shadow: 5px 5px 10px #444444;
-  text-transform: uppercase;
+  box-shadow: 5px 5px 10px #2196b4;
   transition: all 0.5s;
 }
+
 .btn-space {
-  margin-right: 5px;
+  margin-right: 10px;
 }
+
 .links-unstyle {
   text-decoration: none;
   color: black;
@@ -322,55 +340,31 @@ footer .bi:hover {
   }
 }
 
-.product-modal
-  .modal-content
-  .modal-body
-  .product-short-details
-  .product-price {
+.product-modal .modal-content .modal-body .product-short-details .product-price {
   font-size: 30px;
   margin: 20px 0;
 }
 
 @media (max-width: 480px) {
-  .product-modal
-    .modal-content
-    .modal-body
-    .product-short-details
-    .product-price {
+  .product-modal .modal-content .modal-body .product-short-details .product-price {
     margin: 10px 0;
   }
 }
 
 .product-modal .modal-content .modal-body .product-short-details .btn-main,
-.product-modal
-  .modal-content
-  .modal-body
-  .product-short-details
-  .btn-solid-border,
-.product-modal
-  .modal-content
-  .modal-body
-  .product-short-details
-  .btn-transparent,
+.product-modal .modal-content .modal-body .product-short-details .btn-solid-border,
+.product-modal .modal-content .modal-body .product-short-details .btn-transparent,
 .product-modal .modal-content .modal-body .product-short-details .btn-small {
   margin-top: 20px;
 }
 
-.product-modal
-  .modal-content
-  .modal-body
-  .product-short-details
-  .btn-transparent {
+.product-modal .modal-content .modal-body .product-short-details .btn-transparent {
   color: #444;
   border-bottom: 1px solid #dedede;
 }
 
 /* /producto */
-.product-modal
-  .modal-content
-  .modal-body
-  .product-short-details
-  .product-price {
+.product-modal .modal-content .modal-body .product-short-details .product-price {
   font-size: 30px;
   margin: 20px 0;
 }
