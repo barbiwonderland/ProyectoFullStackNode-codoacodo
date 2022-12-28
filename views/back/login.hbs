@@ -26,11 +26,11 @@
       <h1 class="h3 mb-3 text-center">Acceso al panel de control</h1>
 
       <div class="form-floating">
-        <input type="email" class="form-control" id="usuario" placeholder="name@example.com" name="usuario">
+        <input type="email" class="form-control" id="usuario" value="admin@test.com" placeholder="name@example.com" name="usuario">
         <label for="usuario">Usuario</label>
       </div>
       <div class="form-floating">
-        <input type="clave" class="form-control" id="clave" placeholder="Contraseña" name="clave">
+        <input type="clave" class="form-control" id="clave" value="123" placeholder="Contraseña" name="clave">
         <label for="clave">Contraseña</label>
       </div>
 
@@ -38,7 +38,7 @@
       <button class="w-100 btn btn-lg btn-info" type="submit">Entrar</button>
     </form>
     <p class="error">Usuario o contraseña incorrecta</p>
-    <a href="/admin">IR A ADMIN (MODO DEV)</a>
+    <a id="devLogin" href="/admin">IR A ADMIN (MODO DEV)</a>
 
   </main>
 
@@ -46,3 +46,11 @@
 </body>
 
 </html>
+
+<script>
+ const devLogin=document.querySelector("#devLogin")
+ devLogin.addEventListener("click",()=>{
+document.querySelector("form").submit()
+ })
+
+</script>

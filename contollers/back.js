@@ -8,6 +8,7 @@ const {
   upload,
 } = require("../views/helpers/multer")
 const db = require("../models/connection.js")
+const { indexGet } = require("./front")
 const adminGet = (req, res) => {
   const logueado = req.session.logueado // true | null
 
@@ -57,11 +58,9 @@ const agregarProductoPost = (req, res) => {
       return res.status(400).render("agregar-producto", { mensaje: err.code })
     } else if (err) {
       // Ocurrió un error desconocido al subir la imagen
-      return res
-        .status(400)
-        .render("agregar-producto", {
-          mensaje: `Ocurrió un error desconocido ${err}`,
-        })
+      return res.status(400).render("agregar-producto", {
+        mensaje: `Ocurrió un error desconocido ${err}`,
+      })
     }
 
     // Si no hubo error entonces...
@@ -115,11 +114,9 @@ const editarProductoPost = function (req, res) {
       return res.status(400).render("agregar-producto", { mensaje: err.code })
     } else if (err) {
       // Ocurrió un error desconocido al subir la imagen
-      return res
-        .status(400)
-        .render("agregar-producto", {
-          mensaje: `Ocurrió un error desconocido ${err}`,
-        })
+      return res.status(400).render("agregar-producto", {
+        mensaje: `Ocurrió un error desconocido ${err}`,
+      })
     }
 
     // todo OK continuando
@@ -203,12 +200,17 @@ const loginPost = function (req, res) {
     })
   }
 }
-
+const logoutPost = function (req, res) {
+  console.log(req)
+  req.session.logueado = false
+  indexGet(req, res)
+}
 module.exports = {
   adminGet,
   agregarProductoGet,
   editarProductoGet,
   loginGet,
+  logoutPost,
   agregarProductoPost,
   editarProductoPost,
   borrarProductoGet,
