@@ -129,6 +129,15 @@ footer .bi:hover {
 	transition: all 0.5s
 }
 
+.links-login {
+	text-decoration: none;
+	color: black;
+}
+
+.links-login:hover {
+	color: black;
+}
+
 /* /Inicio  */
 
 .product-item {
@@ -257,7 +266,7 @@ footer .bi:hover {
 	vertical-align: middle;
 }
 
-.modal-img  {
+.modal-img {
 	max-height: 90%;
 	max-width: 50%;
 	object-fit: cover;

@@ -8,18 +8,12 @@
 <body>
     {{>header}}
     {{>nav}}
-    <div class="px-4 py-5 text-center bg-light bg-gradient text-dark">
-        <h1 class="display-5 fw-bold ">{{titulo}}</h1>
-        <div class="col-lg-6 mx-auto">
-            <p class="lead mb-4 text-dark">Descripcion corta de lo que trata el negocio</p>
-            <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
-                <a href="/contacto" class="btn btn-dark btn-lg px-4">Contacto</a>
-            </div>
-        </div>
+    <div class="col-12 bg-light">
+        <h2 class="fs-1 display-5 text-center px-4 py-5 ">Productos</h2>
     </div>
     <section class="products section">
         <div class="container my-5 text-center">
-            <h2 class="fs-1">Productos</h2>
+
             <div class="row">
                 {{#each productos}}
                 <div class="col-md-3">
