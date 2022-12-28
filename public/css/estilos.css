@@ -130,7 +130,9 @@ footer .bi:hover {
   text-transform: uppercase;
   transition: all 0.5s;
 }
-
+.btn-space {
+  margin-right: 5px;
+}
 .links-unstyle {
   text-decoration: none;
   color: black;
