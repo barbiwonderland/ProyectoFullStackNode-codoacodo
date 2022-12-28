@@ -43,13 +43,12 @@
 
                             <div class="mb-3 col-md-1">
                                 <label for="destacado" class="form-label small">Destacado</label>
-                                {{#if producto.destacado}}
-                                <input type="checkbox" class="form-check-input" id="destacado" name="destacado"
-                                    value="1" checked>
-                                {{else}}
-                                <input type="checkbox" class="form-check-input" id="destacado" name="destacado"
-                                    value="1">
-                                {{/if}}
+                              
+                                <input id="inputHidden" type="hidden" >
+                               
+                                <input id="inputDestacado" type="checkbox" class="form-check-input"  name="destacado"
+                                    value={{producto.destacado}}>
+                               
 
                             </div>
                         </div>
@@ -106,6 +105,26 @@
 
 
     <script>
+        const inputDestacado=document.querySelector("#inputDestacado");
+const hiddenInput=document.querySelector("#inputHidden");
+console.log(inputDestacado)
+//Al iniciar la pagina se setea el check o no segun lo que hay en la api
+if(inputDestacado.value == '1'){
+    inputDestacado.checked=true
+    console.log("cheked")
+}else{
+    inputDestacado.checked=false
+    console.log("uncheked")
+}
+//cada vez que se cambia el input me fijo si no esta chequeado, le agrego al input vacio el valor 0 para que se guarde en la base de datos
+inputDestacado.addEventListener("change", ()=>{
+    if(!inputDestacado.checked ){
+hiddenInput.value='0'
+hiddenInput.name="destacado"
+    }else{
+        inputDestacado.value='1'
+    }
+})
         // https://developer.mozilla.org/en-US/docs/Web/API/File/Using_files_from_web_applications
         const contenedor = document.querySelector("#imagenCargada");
         const elInput = document.querySelector("#rutaImagen");
@@ -119,6 +138,9 @@
                 contenedor.classList.remove("editar");
             }
         }, false);
+
+
+
 
     </script>
 </body>
