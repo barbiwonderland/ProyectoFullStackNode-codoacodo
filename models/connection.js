@@ -8,5 +8,14 @@ const connection = mysql.createConnection({
     database: process.env.DB_DATABASE || "productos",
     port: process.env.DB_PORT || 3306
 });
+
+
 connection.connect();
+// truco para mantener la conexión
+setInterval(function ()
+{
+    connection.query('SELECT 1');
+    // console.log("manteniendo viva la conexion")
+}, 50000);
+
 module.exports = connection;
