@@ -77,7 +77,8 @@
                     </div>
                 </div>
                 <div class="col-12 d-flex justify-content-center mt-3">
-                    <button type="submit" class="btn btn-info btn-sm text-center btn-space ">Editar</button>
+                    <button id="confirm-btn" type="submit" onclick="confirmChanges(event)"
+                        class="btn btn-info btn-sm text-center btn-space ">Editar</button>
                     <a href="/admin" class="btn btn-info btn-sm text-center ">Volver al listado de productos</a>
                 </div>
 
@@ -97,8 +98,30 @@
                 integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
                 crossorigin="anonymous"></script>
 
-
+            <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
             <script>
+                const form = document.querySelector("form");
+                const confirmChanges = (e) =>
+                {
+                    e.preventDefault();
+                    Swal.fire({
+                        title: 'Estas seguro de editar datos?',
+                        text: "Esta accion no se podra deshacer",
+                        icon: 'warning',
+                        showCancelButton: true,
+                        cancelButtonText: "Cancelar",
+                        confirmButtonColor: '#3085d6',
+                        cancelButtonColor: '#d33',
+                        confirmButtonText: 'OK'
+                    }).then((result) =>
+                    {
+                        if (result.isConfirmed)
+                        {
+                            form.submit();
+                        }
+                    });
+
+                };
                 const inputDestacado = document.querySelector("#inputDestacado");
                 const hiddenInput = document.querySelector("#inputHidden");
                 console.log(inputDestacado);
