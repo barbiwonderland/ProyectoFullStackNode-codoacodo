@@ -100,47 +100,41 @@
         rutaImagen.style.opacity = 0;
         rutaImagen.addEventListener('change', updateImageDisplay);
         console.log("preview.firstChild", preview.firstChild);
-        function updateImageDisplay()
-        {
-            while (preview.firstChild)
-            {
+        function updateImageDisplay() {
+            while (preview.firstChild) {
                 preview.removeChild(preview.firstChild);
             }
             const curFiles = rutaImagen.files;
             console.log("curFiles: ", curFiles);
-            if (curFiles.length === 0)
-            {
+            if (curFiles.length === 0) {
                 const para = document.createElement('p');
                 para.textContent = 'No hay una imagen seleccionada para subir';
                 preview.appendChild(para);
-            } else
-            {
+            } else {
                 const list = document.createElement('ol');
                 preview.appendChild(list);
-                for (const file of curFiles)
-                {
+                for (const file of curFiles) {
                     const listItem = document.createElement('li');
+                    listItem.style.listStyle = 'none'
                     const para = document.createElement('p');
                     para.textContent = `Archivo ${file.name}, tamaño ${returnFileSize(file.size)}.`;
                     const image = document.createElement('img');
-                    image.classList.add("img-fluid");
                     image.src = URL.createObjectURL(file);
+                    image.style.width = "150px"
+                    image.style.height = "150px"
+                    image.style.objectFit = "cover"
                     listItem.appendChild(image);
                     listItem.appendChild(para);
                     list.appendChild(listItem);
                 }
             }
         }
-        function returnFileSize(number)
-        {
-            if (number < 1024)
-            {
+        function returnFileSize(number) {
+            if (number < 1024) {
                 return number + 'bytes';
-            } else if (number >= 1024 && number < 1048576)
-            {
+            } else if (number >= 1024 && number < 1048576) {
                 return (number / 1024).toFixed(1) + 'KB';
-            } else if (number >= 1048576)
-            {
+            } else if (number >= 1048576) {
                 return (number / 1048576).toFixed(1) + 'MB';
             }
         }
