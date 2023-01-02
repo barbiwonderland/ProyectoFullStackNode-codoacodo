@@ -15,6 +15,7 @@
         <div class="container my-5 text-center">
 
             <div class="row">
+                {{#if productos}}
                 {{#each productos}}
                 <div class="col-md-3">
                     <div class="product-item">
@@ -80,6 +81,9 @@
                     </div>
                 </div>
                 {{/each}}
+                {{else}}
+                <h4>Aun no hay productos cargados...</h4>
+                {{/if}}
             </div>
         </div>
     </section>
