@@ -38,15 +38,16 @@
 
                         <div class="mb-3 col-12 col-md-6">
                             <label for="precio" class="form-label small">Precio (u$s)</label>
-                            <input type="text" class="form-control" id="precio" placeholder="$ Precio en dólares"
-                                name="precio" required>
+                            <input type="number" class="form-control" id="precio" placeholder="$ Precio en dólares"
+                                name="precio" min="1" max="20000000" required>
                         </div>
                         <div class="mb-3 col-md-3">
                             <label for="stock" class="form-label small">Stock</label>
-                            <input type="number" class="form-control" id="stock" name="stock" required>
+                            <input type="number" class="form-control" id="stock" name="stock" required min="1"
+                                max="100000">
                         </div>
 
-                        <div class="mb-3 col-md-1">
+                        <div class=" mb-3 col-md-1">
                             <label for="destacado" class="form-label small">Destacado</label>
                             <input type="checkbox" class="form-check-input" value="1" id="destacado" name="destacado">
                         </div>
@@ -56,8 +57,8 @@
                         <div class="preview">
                             <p>No hay imagen seleccionada para subir</p>
                         </div>
-                        <input class="form-control" type="file" id="rutaImagen" name="rutaImagen" style="display:none"
-                            accept=".png,.jpg,.jpeg">
+                        <input class="form-control" type="file" id="rutaImagen" name="rutaImagen"
+                            style="display:none required" accept=".png,.jpg,.jpeg">
                     </div>
 
                 </div>
@@ -66,12 +67,13 @@
                         <div class="mb-3 col-8">
                             <label for="descripcion" class="form-label small">Descripcion</label>
                             <textarea class="form-control" id="descripcion" rows="6"
-                                placeholder="Descripcion del producto" name="descripcion"></textarea>
+                                placeholder="Descripcion del producto" name="descripcion" required></textarea>
                         </div>
                         <div class="mb-3 col-4">
                             <label for="caracteristicas" class="form-label small">Caracteristicas</label>
                             <textarea class="form-control" id="caracteristicas" rows="6"
-                                placeholder="Separar con coma las características" name="caracteristicas"></textarea>
+                                placeholder="Separar con coma las características" name="caracteristicas"
+                                required></textarea>
                         </div>
                     </div>
                 </div>
